@@ -1,1 +1,1223 @@
 
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mapa do Mercado | SuperAcessível</title>
+
+<style>
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+
+    background: #f4f7fb;
+
+    color: #18324f;
+
+}
+
+header {
+
+    background: white;
+
+    padding: 17px 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    box-shadow: 0 3px 15px #0000000b;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+
+}
+
+.logo {
+
+    color: #1265c4;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+}
+
+.logo span {
+
+    color: #159957;
+
+}
+
+nav {
+
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+}
+
+nav a {
+
+    text-decoration: none;
+
+    color: #607086;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+}
+
+nav a:hover {
+
+    color: #159957;
+
+}
+
+main {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 35px 6%;
+
+}
+
+.hero {
+
+    background: linear-gradient(120deg, #145a9e, #159957);
+
+    color: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+.hero h1 {
+
+    font-size: 30px;
+
+    margin-bottom: 12px;
+
+}
+
+.hero p {
+
+    line-height: 1.6;
+
+    color: #e7f4ef;
+
+}
+
+.info {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+}
+
+.info-card {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e8edf2;
+
+}
+
+.info-card strong {
+
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+
+}
+
+.info-card span {
+
+    color: #718096;
+
+    font-size: 13px;
+
+}
+
+.content {
+
+    display: grid;
+
+    grid-template-columns: 1fr 300px;
+
+    gap: 22px;
+
+    align-items: start;
+
+}
+
+.map-container {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    box-shadow: 0 5px 25px #00000008;
+
+    overflow: hidden;
+
+}
+
+.map-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+.map-header h2 {
+
+    font-size: 21px;
+
+}
+
+.map-header span {
+
+    color: #159957;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+.map {
+
+    background: #edf3f7;
+
+    border: 2px solid #d6e0e9;
+
+    border-radius: 13px;
+
+    padding: 13px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 10px;
+
+    position: relative;
+
+}
+
+.zone {
+
+    min-height: 105px;
+
+    border-radius: 10px;
+
+    border: 2px solid transparent;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 10px 5px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+.zone span {
+
+    font-size: 27px;
+
+    margin-bottom: 7px;
+
+}
+
+.zone small {
+
+    font-weight: normal;
+
+    font-size: 10px;
+
+    margin-top: 5px;
+
+}
+
+.zone:hover, .zone.selected {
+
+    border-color: #1265c4;
+
+    transform: scale(1.02);
+
+}
+
+.fruits { background: #e1f5e7; color: #147b45; }
+
+.beverages { background: #e1efff; color: #145a9e; }
+
+.bakery { background: #fff0d8; color: #9b6012; }
+
+.meat { background: #ffe5e5; color: #b43d3d; }
+
+.cleaning { background: #e7e8ff; color: #5149a6; }
+
+.hygiene { background: #f8e7ff; color: #913db3; }
+
+.cashier { background: #dceaf8; color: #24517e; }
+
+.entrance { background: #d9f5ed; color: #16865c; }
+
+.access { background: #fff4d5; color: #986b10; }
+
+.aisle {
+
+    background: white;
+
+    border: 1px dashed #b9c6d2;
+
+    border-radius: 8px;
+
+    min-height: 105px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #7d8c9a;
+
+    font-size: 11px;
+
+    text-align: center;
+
+    padding: 5px;
+
+}
+
+.route-line {
+
+    display: none;
+
+    position: absolute;
+
+    top: 45%;
+
+    left: 12%;
+
+    width: 76%;
+
+    border-top: 5px dashed #1265c4;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+}
+
+.route-line.active {
+
+    display: block;
+
+}
+
+.map-note {
+
+    background: #f0f7ff;
+
+    color: #42617f;
+
+    border-radius: 9px;
+
+    padding: 12px;
+
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+.sidebar {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.panel {
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 17px;
+
+    border: 1px solid #e8edf2;
+
+}
+
+.panel h3 {
+
+    margin-bottom: 17px;
+
+    font-size: 18px;
+
+}
+
+.panel select, .panel input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #dce4ec;
+
+    border-radius: 9px;
+
+    margin-bottom: 12px;
+
+    background: white;
+
+    color: #18324f;
+
+    font-size: 14px;
+
+}
+
+.action-button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #159957;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.action-button:hover {
+
+    background: #107744;
+
+}
+
+.secondary-button {
+
+    background: #eaf1f8;
+
+    color: #24517e;
+
+    margin-top: 9px;
+
+}
+
+#route-result {
+
+    display: none;
+
+    background: #e5f5eb;
+
+    color: #147b45;
+
+    padding: 13px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-top: 14px;
+
+}
+
+.legend {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+}
+
+.legend-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #62748a;
+
+    font-size: 13px;
+
+}
+
+.dot {
+
+    width: 13px;
+
+    height: 13px;
+
+    border-radius: 4px;
+
+    flex-shrink: 0;
+
+}
+
+.accessibility {
+
+    background: #e7f6ee;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    margin-top: 15px;
+
+}
+
+.accessibility h4 {
+
+    color: #147b45;
+
+    margin-bottom: 8px;
+
+}
+
+.accessibility p {
+
+    font-size: 13px;
+
+    color: #557568;
+
+    line-height: 1.5;
+
+}
+
+footer {
+
+    background: #102b4c;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+
+    margin-top: 60px;
+
+}
+
+footer p {
+
+    color: #bdcde0;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+
+}
+
+button:focus, a:focus, select:focus, input:focus {
+
+    outline: 3px solid #f4b942;
+
+    outline-offset: 3px;
+
+}
+
+@media(max-width: 850px) {
+
+    .content {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .info {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+@media(max-width: 550px) {
+
+    header {
+
+        padding: 15px 5%;
+
+    }
+
+    nav {
+
+        width: 100%;
+
+        gap: 15px;
+
+    }
+
+    main {
+
+        padding: 25px 4%;
+
+    }
+
+    .hero {
+
+        padding: 25px 20px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 25px;
+
+    }
+
+    .info {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .map-container {
+
+        padding: 12px;
+
+    }
+
+    .map {
+
+        gap: 5px;
+
+        padding: 6px;
+
+    }
+
+    .zone {
+
+        min-height: 90px;
+
+        font-size: 10px;
+
+    }
+
+    .zone span {
+
+        font-size: 22px;
+
+    }
+
+    .aisle {
+
+        font-size: 9px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">♿ Super<span>Acessível</span></div>
+
+    <nav aria-label="Menu principal">
+
+        <a href="index.html">Início</a>
+
+        <a href="compras.html">Compras</a>
+
+        <a href="mapa.html">Mapa</a>
+
+        <a href="acessibilidade.html">Acessibilidade</a>
+
+        <a href="ajuda.html">Ajuda</a>
+
+    </nav>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+    <h1>Encontre seu caminho! 🗺️</h1>
+
+    <p>
+
+        Explore o supermercado, localize produtos e descubra
+
+        caminhos acessíveis para realizar suas compras com
+
+        mais autonomia e conforto.
+
+    </p>
+
+</section>
+
+<section class="info">
+
+    <div class="info-card">
+
+        <strong>🛒 6</strong>
+
+        <span>Setores demonstrativos</span>
+
+    </div>
+
+    <div class="info-card">
+
+        <strong>♿ Acessível</strong>
+
+        <span>Rotas inclusivas ilustrativas</span>
+
+    </div>
+
+    <div class="info-card">
+
+        <strong>📍 Mapa</strong>
+
+        <span>Localização de setores</span>
+
+    </div>
+
+</section>
+
+<div class="content">
+
+<section class="map-container">
+
+    <div class="map-header">
+
+        <h2>Planta do supermercado</h2>
+
+        <span>● MAPA DEMONSTRATIVO</span>
+
+    </div>
+
+    <div class="map" id="map">
+
+        <div class="zone fruits" data-name="Frutas e verduras"
+
+             onclick="selectZone(this)">
+
+            <span>🍎</span>
+
+            Frutas e verduras
+
+            <small>Setor 01</small>
+
+        </div>
+
+        <div class="aisle">
+
+            CORREDOR PRINCIPAL
+
+            <br>↕
+
+        </div>
+
+        <div class="zone beverages" data-name="Bebidas"
+
+             onclick="selectZone(this)">
+
+            <span>🥤</span>
+
+            Bebidas
+
+            <small>Setor 02</small>
+
+        </div>
+
+        <div class="zone bakery" data-name="Padaria"
+
+             onclick="selectZone(this)">
+
+            <span>🥖</span>
+
+            Padaria
+
+            <small>Setor 03</small>
+
+        </div>
+
+        <div class="aisle">
+
+            CORREDOR ACESSÍVEL
+
+            <br>↕
+
+        </div>
+
+        <div class="zone meat" data-name="Açougue"
+
+             onclick="selectZone(this)">
+
+            <span>🥩</span>
+
+            Açougue
+
+            <small>Setor 04</small>
+
+        </div>
+
+        <div class="zone cleaning" data-name="Limpeza"
+
+             onclick="selectZone(this)">
+
+            <span>🧹</span>
+
+            Limpeza
+
+            <small>Setor 05</small>
+
+        </div>
+
+        <div class="zone hygiene" data-name="Higiene"
+
+             onclick="selectZone(this)">
+
+            <span>🧴</span>
+
+            Higiene
+
+            <small>Setor 06</small>
+
+        </div>
+
+        <div class="zone access" data-name="Acesso acessível"
+
+             onclick="selectZone(this)">
+
+            <span>♿</span>
+
+            Rampa
+
+            <small>Acesso acessível</small>
+
+        </div>
+
+        <div class="zone cashier" data-name="Caixas"
+
+             onclick="selectZone(this)">
+
+            <span>💳</span>
+
+            Caixas
+
+            <small>Final das compras</small>
+
+        </div>
+
+        <div class="zone entrance" data-name="Entrada"
+
+             onclick="selectZone(this)">
+
+            <span>🚪</span>
+
+            Entrada
+
+            <small>Início do percurso</small>
+
+        </div>
+
+        <div class="aisle">
+
+            ÁREA DE CIRCULAÇÃO
+
+            <br>↔
+
+        </div>
+
+        <div class="zone access" data-name="Elevador"
+
+             onclick="selectZone(this)">
+
+            <span>🛗</span>
+
+            Elevador
+
+            <small>Acesso demonstrativo</small>
+
+        </div>
+
+    </div>
+
+    <div class="map-note">
+
+        💡 Toque em qualquer setor para selecioná-lo e consultar
+
+        sua identificação. O desenho representa uma planta
+
+        ilustrativa, não a planta real de um supermercado.
+
+    </div>
+
+</section>
+
+<aside class="sidebar">
+
+    <div class="panel">
+
+        <h3>🔎 Encontrar setor</h3>
+
+        <select id="destination">
+
+            <option value="">Selecione um destino</option>
+
+            <option value="Frutas e verduras">Frutas e verduras</option>
+
+            <option value="Bebidas">Bebidas</option>
+
+            <option value="Padaria">Padaria</option>
+
+            <option value="Açougue">Açougue</option>
+
+            <option value="Limpeza">Limpeza</option>
+
+            <option value="Higiene">Higiene</option>
+
+            <option value="Caixas">Caixas</option>
+
+            <option value="Rampa">Rampa</option>
+
+            <option value="Elevador">Elevador</option>
+
+        </select>
+
+        <button class="action-button" onclick="showRoute()">
+
+            Encontrar caminho →
+
+        </button>
+
+        <button class="action-button secondary-button"
+
+                onclick="clearRoute()">
+
+            Limpar percurso
+
+        </button>
+
+        <div id="route-result" role="status" aria-live="polite"></div>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>📌 Legenda do mapa</h3>
+
+        <div class="legend">
+
+            <div class="legend-item">
+
+                <div class="dot" style="background:#e1f5e7"></div>
+
+                Frutas e verduras
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="dot" style="background:#e1efff"></div>
+
+                Bebidas
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="dot" style="background:#fff0d8"></div>
+
+                Padaria
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="dot" style="background:#ffe5e5"></div>
+
+                Açougue
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="dot" style="background:#e7e8ff"></div>
+
+                Limpeza
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="dot" style="background:#f8e7ff"></div>
+
+                Higiene
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="dot" style="background:#fff4d5"></div>
+
+                Recursos acessíveis
+
+            </div>
+
+        </div>
+
+        <div class="accessibility">
+
+            <h4>♿ Ambiente inclusivo</h4>
+
+            <p>
+
+                O projeto prevê corredores acessíveis, rampas,
+
+                elevadores e caminhos que facilitem a circulação
+
+                de pessoas com mobilidade reduzida.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</aside>
+
+</div>
+
+</main>
+
+<footer>
+
+    <h3>SuperAcessível ♿</h3>
+
+    <p>Compras mais simples, acessíveis e inclusivas.</p>
+
+    <p>Projeto acadêmico demonstrativo • 2026</p>
+
+</footer>
+
+<script>
+
+function selectZone(element) {
+
+    document.querySelectorAll(".zone").forEach(zone => {
+
+        zone.classList.remove("selected");
+
+    });
+
+    element.classList.add("selected");
+
+    const name = element.dataset.name;
+
+    const select = document.getElementById("destination");
+
+    const option = Array.from(select.options).find(
+
+        item => item.value === name ||
+
+        (name === "Acesso acessível" && item.value === "Rampa")
+
+    );
+
+    if (option) {
+
+        select.value = option.value;
+
+    }
+
+    document.getElementById("route-result").style.display = "block";
+
+    document.getElementById("route-result").innerHTML =
+
+        "📍 Setor selecionado: <strong>" + name +
+
+        "</strong><br>Selecione encontrar caminho para visualizar a orientação demonstrativa.";
+
+}
+
+function showRoute() {
+
+    const destination = document.getElementById("destination").value;
+
+    const result = document.getElementById("route-result");
+
+    if (!destination) {
+
+        alert("Selecione um setor primeiro!");
+
+        return;
+
+    }
+
+    const descriptions = {
+
+        "Frutas e verduras": "Dirija-se ao setor 01, próximo à entrada.",
+
+        "Bebidas": "Dirija-se ao setor 02, pelo corredor principal.",
+
+        "Padaria": "Dirija-se ao setor 03.",
+
+        "Açougue": "Dirija-se ao setor 04.",
+
+        "Limpeza": "Dirija-se ao setor 05.",
+
+        "Higiene": "Dirija-se ao setor 06.",
+
+        "Caixas": "Siga até a área dos caixas.",
+
+        "Rampa": "A rampa está identificada na área de acesso acessível.",
+
+        "Elevador": "Siga até a área identificada como elevador."
+
+    };
+
+    result.style.display = "block";
+
+    result.innerHTML =
+
+        "♿ <strong>Destino: " + destination + "</strong><br><br>" +
+
+        descriptions[destination] +
+
+        "<br><br>Este percurso é uma orientação ilustrativa. " +
+
+        "A rota real precisa ser validada no supermercado.";
+
+    document.querySelectorAll(".zone").forEach(zone => {
+
+        zone.classList.remove("selected");
+
+    });
+
+    const zone = Array.from(document.querySelectorAll(".zone"))
+
+        .find(item => item.dataset.name === destination);
+
+    if (zone) {
+
+        zone.classList.add("selected");
+
+    }
+
+}
+
+function clearRoute() {
+
+    document.getElementById("destination").value = "";
+
+    document.getElementById("route-result").style.display = "none";
+
+    document.querySelectorAll(".zone").forEach(zone => {
+
+        zone.classList.remove("selected");
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
