@@ -1,1 +1,747 @@
 
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Acessibilidade | SuperAcessível</title>
+
+  <style>
+
+    * {
+
+      margin: 0;
+
+      padding: 0;
+
+      box-sizing: border-box;
+
+    }
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      background: #f4f8fb;
+
+      color: #263238;
+
+      line-height: 1.6;
+
+      transition: background 0.3s, color 0.3s;
+
+    }
+
+    header {
+
+      background: #0879c9;
+
+      color: white;
+
+      padding: 20px 7%;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+    }
+
+    header h1 {
+
+      font-size: 25px;
+
+    }
+
+    nav {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 16px;
+
+    }
+
+    nav a {
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+    }
+
+    nav a:hover {
+
+      text-decoration: underline;
+
+    }
+
+    .hero {
+
+      background: linear-gradient(120deg, #0879c9, #12a88a);
+
+      color: white;
+
+      text-align: center;
+
+      padding: 65px 20px;
+
+    }
+
+    .hero h2 {
+
+      font-size: 36px;
+
+      margin-bottom: 12px;
+
+    }
+
+    .hero p {
+
+      max-width: 650px;
+
+      margin: auto;
+
+      font-size: 18px;
+
+    }
+
+    main {
+
+      max-width: 1100px;
+
+      margin: 40px auto;
+
+      padding: 0 20px;
+
+    }
+
+    .section-title {
+
+      text-align: center;
+
+      margin-bottom: 25px;
+
+    }
+
+    .section-title h2 {
+
+      color: #0879c9;
+
+      font-size: 28px;
+
+    }
+
+    .section-title p {
+
+      color: #64748b;
+
+    }
+
+    .tools {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+      gap: 20px;
+
+    }
+
+    .tool-card {
+
+      background: white;
+
+      padding: 25px;
+
+      border-radius: 15px;
+
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+    }
+
+    .tool-card .icon {
+
+      font-size: 35px;
+
+      margin-bottom: 10px;
+
+    }
+
+    .tool-card h3 {
+
+      color: #0879c9;
+
+      margin-bottom: 8px;
+
+      font-size: 21px;
+
+    }
+
+    .tool-card p {
+
+      color: #536471;
+
+      margin-bottom: 17px;
+
+    }
+
+    button {
+
+      border: none;
+
+      background: #0879c9;
+
+      color: white;
+
+      padding: 12px 18px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      margin: 4px 3px 4px 0;
+
+    }
+
+    button:hover {
+
+      background: #0563a6;
+
+    }
+
+    button:focus-visible,
+
+    a:focus-visible {
+
+      outline: 4px solid #ffbf47;
+
+      outline-offset: 4px;
+
+    }
+
+    .secondary {
+
+      background: #64748b;
+
+    }
+
+    .secondary:hover {
+
+      background: #475569;
+
+    }
+
+    .instructions {
+
+      margin-top: 45px;
+
+      background: white;
+
+      padding: 30px;
+
+      border-radius: 15px;
+
+    }
+
+    .instructions h2 {
+
+      color: #0879c9;
+
+      margin-bottom: 15px;
+
+    }
+
+    .instructions ul {
+
+      padding-left: 22px;
+
+    }
+
+    .instructions li {
+
+      margin-bottom: 12px;
+
+    }
+
+    .status {
+
+      margin-top: 12px;
+
+      font-weight: bold;
+
+      color: #087b55;
+
+      min-height: 24px;
+
+    }
+
+    footer {
+
+      background: #102d43;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 25px;
+
+      margin-top: 50px;
+
+    }
+
+    /* Alto contraste */
+
+    body.high-contrast {
+
+      background: #000;
+
+      color: #fff;
+
+    }
+
+    body.high-contrast header,
+
+    body.high-contrast footer {
+
+      background: #000;
+
+      border-bottom: 2px solid #fff;
+
+    }
+
+    body.high-contrast .hero {
+
+      background: #000;
+
+      border-top: 2px solid yellow;
+
+      border-bottom: 2px solid yellow;
+
+    }
+
+    body.high-contrast .tool-card,
+
+    body.high-contrast .instructions {
+
+      background: #000;
+
+      color: #fff;
+
+      border: 2px solid yellow;
+
+    }
+
+    body.high-contrast .tool-card h3,
+
+    body.high-contrast .instructions h2,
+
+    body.high-contrast .section-title h2,
+
+    body.high-contrast .tool-card p,
+
+    body.high-contrast .section-title p {
+
+      color: #fff;
+
+    }
+
+    body.high-contrast button {
+
+      background: yellow;
+
+      color: black;
+
+    }
+
+    /* Redução de animações */
+
+    body.reduce-motion *,
+
+    body.reduce-motion *::before,
+
+    body.reduce-motion *::after {
+
+      animation: none !important;
+
+      transition: none !important;
+
+      scroll-behavior: auto !important;
+
+    }
+
+    @media (max-width: 650px) {
+
+      header {
+
+        flex-direction: column;
+
+        text-align: center;
+
+      }
+
+      nav {
+
+        justify-content: center;
+
+      }
+
+      .hero h2 {
+
+        font-size: 29px;
+
+      }
+
+      .tool-card {
+
+        padding: 20px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>♿ SuperAcessível</h1>
+
+    <nav aria-label="Menu principal">
+
+      <a href="index.html">Início</a>
+
+      <a href="compras.html">Compras</a>
+
+      <a href="mapa.html">Mapa</a>
+
+      <a href="acessibilidade.html">Acessibilidade</a>
+
+      <a href="ajuda.html">Ajuda</a>
+
+    </nav>
+
+  </header>
+
+  <section class="hero">
+
+    <h2>Acessibilidade para todos!</h2>
+
+    <p>
+
+      Nosso objetivo é tornar a experiência de compras mais simples,
+
+      confortável e acessível para todas as pessoas.
+
+    </p>
+
+  </section>
+
+  <main>
+
+    <section class="section-title">
+
+      <h2>Personalize sua experiência</h2>
+
+      <p>Escolha os recursos que deixam a navegação mais confortável.</p>
+
+    </section>
+
+    <section class="tools">
+
+      <article class="tool-card">
+
+        <div class="icon" aria-hidden="true">🔠</div>
+
+        <h3>Tamanho do texto</h3>
+
+        <p>Aumente ou diminua as letras para facilitar a leitura.</p>
+
+        <button type="button" onclick="alterarFonte(1)">
+
+          Aumentar +
+
+        </button>
+
+        <button type="button" class="secondary" onclick="alterarFonte(-1)">
+
+          Diminuir -
+
+        </button>
+
+        <button type="button" class="secondary" onclick="resetarFonte()">
+
+          Restaurar
+
+        </button>
+
+        <p class="status" id="fonteStatus" aria-live="polite">
+
+          Tamanho padrão.
+
+        </p>
+
+      </article>
+
+      <article class="tool-card">
+
+        <div class="icon" aria-hidden="true">🌗</div>
+
+        <h3>Alto contraste</h3>
+
+        <p>Ative cores mais contrastantes para facilitar a visualização.</p>
+
+        <button type="button" onclick="alternarContraste()" id="contrasteBtn">
+
+          Ativar contraste
+
+        </button>
+
+        <p class="status" id="contrasteStatus" aria-live="polite">
+
+          Contraste padrão ativado.
+
+        </p>
+
+      </article>
+
+      <article class="tool-card">
+
+        <div class="icon" aria-hidden="true">🔊</div>
+
+        <h3>Leitura em voz alta</h3>
+
+        <p>Ouça uma leitura das informações desta página.</p>
+
+        <button type="button" onclick="lerPagina()">
+
+          Ler página
+
+        </button>
+
+        <button type="button" class="secondary" onclick="pararLeitura()">
+
+          Parar leitura
+
+        </button>
+
+        <p class="status" id="leituraStatus" aria-live="polite">
+
+          Leitura disponível.
+
+        </p>
+
+      </article>
+
+      <article class="tool-card">
+
+        <div class="icon" aria-hidden="true">✨</div>
+
+        <h3>Reduzir animações</h3>
+
+        <p>Desative transições e animações para uma navegação mais tranquila.</p>
+
+        <button type="button" onclick="alternarAnimacoes()" id="animacaoBtn">
+
+          Reduzir animações
+
+        </button>
+
+        <p class="status" id="animacaoStatus" aria-live="polite">
+
+          Animações padrão ativadas.
+
+        </p>
+
+      </article>
+
+    </section>
+
+    <section class="instructions">
+
+      <h2>Como podemos ajudar?</h2>
+
+      <ul>
+
+        <li><strong>Pessoas com mobilidade reduzida:</strong> buscamos facilitar o acesso aos setores e às informações do supermercado.</li>
+
+        <li><strong>Pessoas com baixa visão:</strong> oferecemos opções de texto ampliado e alto contraste.</li>
+
+        <li><strong>Pessoas com dificuldade de leitura:</strong> o recurso de voz pode ajudar a compreender as informações.</li>
+
+        <li><strong>Pessoas com sensibilidade a movimentos:</strong> é possível reduzir as animações da página.</li>
+
+        <li><strong>Todos os usuários:</strong> buscamos oferecer botões claros, informações organizadas e navegação simples.</li>
+
+      </ul>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p>© 2026 SuperAcessível - Um supermercado melhor para todos.</p>
+
+    <p>Inclusão, autonomia e respeito.</p>
+
+  </footer>
+
+  <script>
+
+    let tamanhoFonte = 16;
+
+    let contrasteAtivo = false;
+
+    let animacoesReduzidas = false;
+
+    function alterarFonte(valor) {
+
+      tamanhoFonte += valor * 2;
+
+      if (tamanhoFonte > 26) tamanhoFonte = 26;
+
+      if (tamanhoFonte < 12) tamanhoFonte = 12;
+
+      document.body.style.fontSize = tamanhoFonte + "px";
+
+      document.getElementById("fonteStatus").textContent =
+
+        "Tamanho atual: " + tamanhoFonte + "px.";
+
+    }
+
+    function resetarFonte() {
+
+      tamanhoFonte = 16;
+
+      document.body.style.fontSize = "16px";
+
+      document.getElementById("fonteStatus").textContent =
+
+        "Tamanho padrão restaurado.";
+
+    }
+
+    function alternarContraste() {
+
+      contrasteAtivo = !contrasteAtivo;
+
+      document.body.classList.toggle("high-contrast", contrasteAtivo);
+
+      document.getElementById("contrasteBtn").textContent =
+
+        contrasteAtivo ? "Desativar contraste" : "Ativar contraste";
+
+      document.getElementById("contrasteStatus").textContent =
+
+        contrasteAtivo ? "Alto contraste ativado." : "Contraste padrão ativado.";
+
+    }
+
+    function lerPagina() {
+
+      if (!("speechSynthesis" in window)) {
+
+        document.getElementById("leituraStatus").textContent =
+
+          "Seu navegador não oferece suporte à leitura em voz alta.";
+
+        return;
+
+      }
+
+      pararLeitura();
+
+      const texto = document.querySelector("main").innerText;
+
+      const fala = new SpeechSynthesisUtterance(texto);
+
+      fala.lang = "pt-BR";
+
+      fala.rate = 0.9;
+
+      fala.onend = function() {
+
+        document.getElementById("leituraStatus").textContent =
+
+          "Leitura concluída.";
+
+      };
+
+      fala.onerror = function() {
+
+        document.getElementById("leituraStatus").textContent =
+
+          "Não foi possível realizar a leitura.";
+
+      };
+
+      window.speechSynthesis.speak(fala);
+
+      document.getElementById("leituraStatus").textContent =
+
+        "Lendo o conteúdo da página...";
+
+    }
+
+    function pararLeitura() {
+
+      if ("speechSynthesis" in window) {
+
+        window.speechSynthesis.cancel();
+
+        document.getElementById("leituraStatus").textContent =
+
+          "Leitura interrompida.";
+
+      }
+
+    }
+
+    function alternarAnimacoes() {
+
+      animacoesReduzidas = !animacoesReduzidas;
+
+      document.body.classList.toggle("reduce-motion", animacoesReduzidas);
+
+      document.getElementById("animacaoBtn").textContent =
+
+        animacoesReduzidas ? "Ativar animações" : "Reduzir animações";
+
+      document.getElementById("animacaoStatus").textContent =
+
+        animacoesReduzidas
+
+          ? "Animações reduzidas."
+
+          : "Animações padrão ativadas.";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
