@@ -1,1 +1,490 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista | SuperAcessível</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8fb;
+      color: #263238;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0879c9;
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-size: 25px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible,
+    input:focus-visible {
+      outline: 4px solid #ffbf47;
+      outline-offset: 3px;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #0879c9, #12a88a);
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 950px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    .container h2 {
+      color: #0879c9;
+      margin-bottom: 8px;
+    }
+
+    .intro {
+      color: #64748b;
+      margin-bottom: 25px;
+    }
+
+    .add-area {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .add-area input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 12px 17px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .add-btn {
+      background: #0879c9;
+      color: white;
+    }
+
+    .add-btn:hover {
+      background: #0563a6;
+    }
+
+    .shopping-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-info strong {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .item-info small {
+      color: #64748b;
+    }
+
+    .item-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .quantity-btn {
+      background: #eaf5ff;
+      color: #0879c9;
+      min-width: 36px;
+      padding: 8px;
+    }
+
+    .remove-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 9px 12px;
+    }
+
+    .summary {
+      margin-top: 25px;
+      background: #eef8ff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .summary p {
+      margin-bottom: 8px;
+    }
+
+    .total {
+      font-size: 24px;
+      color: #0879c9;
+      font-weight: bold;
+    }
+
+    .empty {
+      text-align: center;
+      color: #64748b;
+      padding: 30px 10px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .clear-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .print-btn {
+      background: #12a88a;
+      color: white;
+    }
+
+    footer {
+      background: #102d43;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero h2 {
+        font-size: 29px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .add-area {
+        flex-direction: column;
+      }
+
+      .shopping-item {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .item-actions {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      header, .hero, .add-area, .actions, footer,
+      .remove-btn, .quantity-btn {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .container {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>♿ SuperAcessível</h1>
+
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="compras.html">Compras</a>
+      <a href="mapa.html">Mapa</a>
+      <a href="lista-compras.html">Minha lista</a>
+      <a href="acessibilidade.html">Acessibilidade</a>
+      <a href="ajuda.html">Ajuda</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Minha lista de compras 🛒</h2>
+    <p>Organize seus produtos e acompanhe o valor estimado da sua compra.</p>
+  </section>
+
+  <main>
+    <section class="container">
+
+      <h2>Seus produtos</h2>
+      <p class="intro">
+        Adicione os produtos que deseja comprar e organize sua lista.
+      </p>
+
+      <div class="add-area">
+        <input
+          type="text"
+          id="produtoInput"
+          placeholder="Digite o nome de um produto..."
+          aria-label="Nome do produto"
+        >
+
+        <button class="add-btn" onclick="adicionarProduto()">
+          + Adicionar produto
+        </button>
+      </div>
+
+      <div id="lista" aria-live="polite"></div>
+
+      <div class="summary">
+        <p>Quantidade de produtos: <strong id="quantidade">0</strong></p>
+        <p class="total">
+          Total estimado: <span id="total">R$ 0,00</span>
+        </p>
+        <small>Os valores são demonstrativos e podem ser diferentes dos preços reais.</small>
+      </div>
+
+      <div class="actions">
+        <button class="print-btn" onclick="window.print()">
+          🖨️ Imprimir lista
+        </button>
+
+        <button class="clear-btn" onclick="limparLista()">
+          Limpar lista
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 SuperAcessível - Um supermercado melhor para todos.</p>
+    <p>Inclusão, autonomia e respeito.</p>
+  </footer>
+
+  <script>
+    let produtos = JSON.parse(localStorage.getItem("minhaLista")) || [];
+
+    function salvarLista() {
+      localStorage.setItem("minhaLista", JSON.stringify(produtos));
+    }
+
+    function adicionarProduto() {
+      const input = document.getElementById("produtoInput");
+      const nome = input.value.trim();
+
+      if (!nome) {
+        alert("Digite o nome de um produto!");
+        input.focus();
+        return;
+      }
+
+      const existente = produtos.find(
+        produto => produto.nome.toLowerCase() === nome.toLowerCase()
+      );
+
+      if (existente) {
+        existente.quantidade++;
+      } else {
+        produtos.push({
+          nome: nome,
+          quantidade: 1,
+          preco: 0
+        });
+      }
+
+      input.value = "";
+      salvarLista();
+      renderizarLista();
+      input.focus();
+    }
+
+    function alterarQuantidade(index, valor) {
+      produtos[index].quantidade += valor;
+
+      if (produtos[index].quantidade <= 0) {
+        produtos.splice(index, 1);
+      }
+
+      salvarLista();
+      renderizarLista();
+    }
+
+    function removerProduto(index) {
+      produtos.splice(index, 1);
+      salvarLista();
+      renderizarLista();
+    }
+
+    function limparLista() {
+      if (produtos.length === 0) return;
+
+      if (confirm("Tem certeza que deseja limpar sua lista?")) {
+        produtos = [];
+        salvarLista();
+        renderizarLista();
+      }
+    }
+
+    function formatarMoeda(valor) {
+      return valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
+
+    function renderizarLista() {
+      const lista = document.getElementById("lista");
+      const quantidade = document.getElementById("quantidade");
+      const total = document.getElementById("total");
+
+      lista.innerHTML = "";
+
+      let quantidadeTotal = 0;
+      let valorTotal = 0;
+
+      if (produtos.length === 0) {
+        lista.innerHTML = `
+          <div class="empty">
+            <h3>🛒 Sua lista está vazia!</h3>
+            <p>Adicione produtos para começar.</p>
+          </div>
+        `;
+      }
+
+      produtos.forEach((produto, index) => {
+        quantidadeTotal += produto.quantidade;
+        valorTotal += produto.quantidade * produto.preco;
+
+        const item = document.createElement("div");
+        item.className = "shopping-item";
+
+        const info = document.createElement("div");
+        info.className = "item-info";
+
+        const nome = document.createElement("strong");
+        nome.textContent = produto.nome;
+
+        const detalhe = document.createElement("small");
+        detalhe.textContent = "Quantidade: " + produto.quantidade;
+
+        info.append(nome, detalhe);
+
+        const acoes = document.createElement("div");
+        acoes.className = "item-actions";
+
+        const menos = document.createElement("button");
+        menos.className = "quantity-btn";
+        menos.textContent = "−";
+        menos.setAttribute("aria-label", "Diminuir quantidade de " + produto.nome);
+        menos.onclick = () => alterarQuantidade(index, -1);
+
+        const numero = document.createElement("strong");
+        numero.textContent = produto.quantidade;
+
+        const mais = document.createElement("button");
+        mais.className = "quantity-btn";
+        mais.textContent = "+";
+        mais.setAttribute("aria-label", "Aumentar quantidade de " + produto.nome);
+        mais.onclick = () => alterarQuantidade(index, 1);
+
+        const remover = document.createElement("button");
+        remover.className = "remove-btn";
+        remover.textContent = "Remover";
+        remover.onclick = () => removerProduto(index);
+
+        acoes.append(menos, numero, mais, remover);
+        item.append(info, acoes);
+        lista.appendChild(item);
+      });
+
+      quantidade.textContent = quantidadeTotal;
+      total.textContent = formatarMoeda(valorTotal);
+    }
+
+    document.getElementById("produtoInput").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        adicionarProduto();
+      }
+    });
+
+    renderizarLista();
+  </script>
+
+</body>
+</html>
