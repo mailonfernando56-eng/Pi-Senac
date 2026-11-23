@@ -1,1 +1,1089 @@
 
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Área de Compras | SuperAcessível</title>
+
+<style>
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+}
+
+body {
+
+    background: #f5f8fc;
+
+    color: #18324f;
+
+}
+
+header {
+
+    background: white;
+
+    padding: 17px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    box-shadow: 0 3px 15px #0000000b;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+
+}
+
+.logo {
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    color: #1265c4;
+
+}
+
+.logo span {
+
+    color: #159957;
+
+}
+
+nav {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+nav a {
+
+    text-decoration: none;
+
+    color: #607086;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+nav a:hover {
+
+    color: #159957;
+
+}
+
+main {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 40px 6%;
+
+}
+
+.welcome {
+
+    background: linear-gradient(120deg, #145a9e, #159957);
+
+    padding: 38px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    margin-bottom: 35px;
+
+}
+
+.welcome h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 12px;
+
+}
+
+.welcome p {
+
+    color: #e5f5ed;
+
+    line-height: 1.6;
+
+}
+
+.search-area {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+
+}
+
+.search-area input {
+
+    flex: 1;
+
+    padding: 16px;
+
+    border: 1px solid #dbe3ed;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    min-width: 0;
+
+}
+
+.search-area input:focus {
+
+    border-color: #159957;
+
+}
+
+.search-area button {
+
+    background: #159957;
+
+    color: white;
+
+    border: none;
+
+    padding: 0 23px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+h2 {
+
+    margin-bottom: 20px;
+
+    font-size: 23px;
+
+}
+
+.categories {
+
+    display: flex;
+
+    gap: 12px;
+
+    overflow-x: auto;
+
+    padding-bottom: 12px;
+
+    margin-bottom: 35px;
+
+}
+
+.category {
+
+    padding: 13px 20px;
+
+    border: 1px solid #e0e8ef;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #52667c;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    font-weight: bold;
+
+}
+
+.category.active,
+
+.category:hover {
+
+    background: #159957;
+
+    color: white;
+
+    border-color: #159957;
+
+}
+
+.products {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+
+}
+
+.product {
+
+    background: white;
+
+    border-radius: 17px;
+
+    padding: 20px;
+
+    border: 1px solid #edf0f4;
+
+    box-shadow: 0 5px 20px #00000008;
+
+    transition: .2s;
+
+}
+
+.product:hover {
+
+    transform: translateY(-4px);
+
+}
+
+.product-image {
+
+    height: 145px;
+
+    border-radius: 13px;
+
+    background: #eff7f1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 72px;
+
+    margin-bottom: 18px;
+
+}
+
+.product h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 8px;
+
+}
+
+.product .category-name {
+
+    color: #8a98a9;
+
+    font-size: 12px;
+
+    margin-bottom: 12px;
+
+}
+
+.price {
+
+    color: #159957;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+}
+
+.add-button {
+
+    width: 100%;
+
+    background: #1265c4;
+
+    color: white;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.add-button:hover {
+
+    background: #0e4e98;
+
+}
+
+.empty {
+
+    display: none;
+
+    padding: 35px;
+
+    text-align: center;
+
+    color: #718096;
+
+    grid-column: 1 / -1;
+
+}
+
+.cart {
+
+    margin-top: 40px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    padding: 25px;
+
+    border: 1px solid #e5ebf1;
+
+}
+
+.cart-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 15px;
+
+}
+
+.cart-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #edf0f4;
+
+    gap: 10px;
+
+}
+
+.remove {
+
+    border: none;
+
+    color: #dc4444;
+
+    background: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+.total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.cart-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.cart-actions button {
+
+    padding: 13px 20px;
+
+    border-radius: 9px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+.finish {
+
+    background: #159957;
+
+    color: white;
+
+}
+
+.clear {
+
+    background: #edf1f5;
+
+    color: #526174;
+
+}
+
+footer {
+
+    background: #102b4c;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+
+    margin-top: 60px;
+
+}
+
+footer p {
+
+    color: #bdcde0;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+
+}
+
+@media(max-width: 850px) {
+
+    .products {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width: 550px) {
+
+    header {
+
+        padding: 15px 5%;
+
+    }
+
+    nav {
+
+        width: 100%;
+
+        gap: 15px;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+    }
+
+    nav a {
+
+        white-space: nowrap;
+
+    }
+
+    main {
+
+        padding: 25px 5%;
+
+    }
+
+    .welcome {
+
+        padding: 27px 20px;
+
+    }
+
+    .welcome h1 {
+
+        font-size: 26px;
+
+    }
+
+    .products {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .search-area button {
+
+        padding: 0 15px;
+
+    }
+
+}
+
+button:focus, a:focus, input:focus {
+
+    outline: 3px solid #f4b942;
+
+    outline-offset: 3px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">♿ Super<span>Acessível</span></div>
+
+    <nav aria-label="Menu principal">
+
+        <a href="index.html">Início</a>
+
+        <a href="compras.html">Compras</a>
+
+        <a href="mapa.html">Mapa</a>
+
+        <a href="acessibilidade.html">Acessibilidade</a>
+
+        <a href="ajuda.html">Ajuda</a>
+
+    </nav>
+
+</header>
+
+<main>
+
+<section class="welcome">
+
+    <h1>Faça suas compras com facilidade! 🛒</h1>
+
+    <p>
+
+        Encontre produtos, consulte preços e organize sua lista
+
+        de compras em um só lugar.
+
+    </p>
+
+</section>
+
+<div class="search-area">
+
+    <input
+
+        type="search"
+
+        id="search"
+
+        placeholder="O que você está procurando?"
+
+        aria-label="Pesquisar produtos"
+
+        oninput="filterProducts()"
+
+    >
+
+    <button onclick="filterProducts()">Pesquisar</button>
+
+</div>
+
+<h2>Explore por categorias</h2>
+
+<div class="categories">
+
+    <button class="category active" onclick="filterCategory('Todos', this)">Todos</button>
+
+    <button class="category" onclick="filterCategory('Frutas', this)">🍎 Frutas</button>
+
+    <button class="category" onclick="filterCategory('Bebidas', this)">🥤 Bebidas</button>
+
+    <button class="category" onclick="filterCategory('Mercearia', this)">🍚 Mercearia</button>
+
+    <button class="category" onclick="filterCategory('Higiene', this)">🧴 Higiene</button>
+
+    <button class="category" onclick="filterCategory('Limpeza', this)">🧹 Limpeza</button>
+
+</div>
+
+<h2>Produtos disponíveis</h2>
+
+<div class="products" id="products">
+
+    <article class="product" data-name="banana" data-category="Frutas" data-price="5.99">
+
+        <div class="product-image">🍌</div>
+
+        <h3>Banana</h3>
+
+        <p class="category-name">Frutas • 1 kg</p>
+
+        <div class="price">R$ 5,99</div>
+
+        <button class="add-button" onclick="addToCart('Banana', 5.99)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="maca" data-category="Frutas" data-price="8.99">
+
+        <div class="product-image">🍎</div>
+
+        <h3>Maçã</h3>
+
+        <p class="category-name">Frutas • 1 kg</p>
+
+        <div class="price">R$ 8,99</div>
+
+        <button class="add-button" onclick="addToCart('Maçã', 8.99)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="laranja" data-category="Frutas" data-price="6.49">
+
+        <div class="product-image">🍊</div>
+
+        <h3>Laranja</h3>
+
+        <p class="category-name">Frutas • 1 kg</p>
+
+        <div class="price">R$ 6,49</div>
+
+        <button class="add-button" onclick="addToCart('Laranja', 6.49)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="leite" data-category="Bebidas" data-price="5.49">
+
+        <div class="product-image">🥛</div>
+
+        <h3>Leite integral</h3>
+
+        <p class="category-name">Bebidas • 1 litro</p>
+
+        <div class="price">R$ 5,49</div>
+
+        <button class="add-button" onclick="addToCart('Leite integral', 5.49)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="suco" data-category="Bebidas" data-price="7.99">
+
+        <div class="product-image">🧃</div>
+
+        <h3>Suco de laranja</h3>
+
+        <p class="category-name">Bebidas • 1 litro</p>
+
+        <div class="price">R$ 7,99</div>
+
+        <button class="add-button" onclick="addToCart('Suco de laranja', 7.99)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="agua" data-category="Bebidas" data-price="2.99">
+
+        <div class="product-image">💧</div>
+
+        <h3>Água mineral</h3>
+
+        <p class="category-name">Bebidas • 1,5 litro</p>
+
+        <div class="price">R$ 2,99</div>
+
+        <button class="add-button" onclick="addToCart('Água mineral', 2.99)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="arroz" data-category="Mercearia" data-price="25.90">
+
+        <div class="product-image">🍚</div>
+
+        <h3>Arroz</h3>
+
+        <p class="category-name">Mercearia • 5 kg</p>
+
+        <div class="price">R$ 25,90</div>
+
+        <button class="add-button" onclick="addToCart('Arroz', 25.90)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="feijao" data-category="Mercearia" data-price="8.49">
+
+        <div class="product-image">🫘</div>
+
+        <h3>Feijão</h3>
+
+        <p class="category-name">Mercearia • 1 kg</p>
+
+        <div class="price">R$ 8,49</div>
+
+        <button class="add-button" onclick="addToCart('Feijão', 8.49)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="macarrao" data-category="Mercearia" data-price="4.99">
+
+        <div class="product-image">🍝</div>
+
+        <h3>Macarrão</h3>
+
+        <p class="category-name">Mercearia • 500 g</p>
+
+        <div class="price">R$ 4,99</div>
+
+        <button class="add-button" onclick="addToCart('Macarrão', 4.99)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="sabonete" data-category="Higiene" data-price="3.99">
+
+        <div class="product-image">🧼</div>
+
+        <h3>Sabonete</h3>
+
+        <p class="category-name">Higiene • Unidade</p>
+
+        <div class="price">R$ 3,99</div>
+
+        <button class="add-button" onclick="addToCart('Sabonete', 3.99)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="shampoo" data-category="Higiene" data-price="14.90">
+
+        <div class="product-image">🧴</div>
+
+        <h3>Shampoo</h3>
+
+        <p class="category-name">Higiene • 350 ml</p>
+
+        <div class="price">R$ 14,90</div>
+
+        <button class="add-button" onclick="addToCart('Shampoo', 14.90)">+ Adicionar à lista</button>
+
+    </article>
+
+    <article class="product" data-name="detergente" data-category="Limpeza" data-price="2.99">
+
+        <div class="product-image">🧽</div>
+
+        <h3>Detergente</h3>
+
+        <p class="category-name">Limpeza • 500 ml</p>
+
+        <div class="price">R$ 2,99</div>
+
+        <button class="add-button" onclick="addToCart('Detergente', 2.99)">+ Adicionar à lista</button>
+
+    </article>
+
+    <div class="empty" id="empty">
+
+        Nenhum produto encontrado.
+
+    </div>
+
+</div>
+
+<section class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>🛒 Minha lista de compras</h2>
+
+        <strong id="count">0 produtos</strong>
+
+    </div>
+
+    <div id="cart-items">
+
+        <p style="color:#718096">Sua lista está vazia.</p>
+
+    </div>
+
+    <div class="total">
+
+        <span>Total estimado:</span>
+
+        <span id="total">R$ 0,00</span>
+
+    </div>
+
+    <div class="cart-actions">
+
+        <button class="finish" onclick="finishShopping()">Finalizar lista</button>
+
+        <button class="clear" onclick="clearCart()">Limpar lista</button>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <h3>SuperAcessível ♿</h3>
+
+    <p>Compras mais simples, acessíveis e inclusivas.</p>
+
+    <p>Projeto acadêmico demonstrativo • 2026</p>
+
+</footer>
+
+<script>
+
+let cart = [];
+
+let selectedCategory = "Todos";
+
+function formatPrice(value) {
+
+    return value.toLocaleString("pt-BR", {
+
+        style: "currency",
+
+        currency: "BRL"
+
+    });
+
+}
+
+function addToCart(name, price) {
+
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+
+        existing.quantity++;
+
+    } else {
+
+        cart.push({ name, price, quantity: 1 });
+
+    }
+
+    renderCart();
+
+}
+
+function renderCart() {
+
+    const container = document.getElementById("cart-items");
+
+    const totalElement = document.getElementById("total");
+
+    const countElement = document.getElementById("count");
+
+    if (cart.length === 0) {
+
+        container.innerHTML = '<p style="color:#718096">Sua lista está vazia.</p>';
+
+    } else {
+
+        container.innerHTML = cart.map((item, index) => `
+
+            <div class="cart-item">
+
+                <span>${item.name} × ${item.quantity}</span>
+
+                <span>
+
+                    ${formatPrice(item.price * item.quantity)}
+
+                    <button class="remove" onclick="removeItem(${index})"
+
+                        aria-label="Remover ${item.name}">✕</button>
+
+                </span>
+
+            </div>
+
+        `).join("");
+
+    }
+
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    totalElement.textContent = formatPrice(total);
+
+    countElement.textContent = count + (count === 1 ? " produto" : " produtos");
+
+}
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    renderCart();
+
+}
+
+function clearCart() {
+
+    if (cart.length === 0) return;
+
+    if (confirm("Deseja limpar sua lista de compras?")) {
+
+        cart = [];
+
+        renderCart();
+
+    }
+
+}
+
+function finishShopping() {
+
+    if (cart.length === 0) {
+
+        alert("Adicione produtos à sua lista primeiro!");
+
+        return;
+
+    }
+
+    alert(
+
+        "Lista organizada com sucesso!\n\n" +
+
+        "Total estimado: " +
+
+        document.getElementById("total").textContent +
+
+        "\n\nEsta é uma demonstração. Nenhuma compra ou pagamento foi realizado."
+
+    );
+
+}
+
+function filterCategory(category, button) {
+
+    selectedCategory = category;
+
+    document.querySelectorAll(".category").forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+    filterProducts();
+
+}
+
+function filterProducts() {
+
+    const search = document.getElementById("search").value
+
+        .toLowerCase()
+
+        .normalize("NFD")
+
+        .replace(/[\u0300-\u036f]/g, "");
+
+    let visible = 0;
+
+    document.querySelectorAll(".product").forEach(product => {
+
+        const name = product.dataset.name;
+
+        const category = product.dataset.category;
+
+        const matchName = name.normalize("NFD")
+
+            .replace(/[\u0300-\u036f]/g, "")
+
+            .includes(search);
+
+        const matchCategory =
+
+            selectedCategory === "Todos" ||
+
+            category === selectedCategory;
+
+        const show = matchName && matchCategory;
+
+        product.style.display = show ? "" : "none";
+
+        if (show) visible++;
+
+    });
+
+    document.getElementById("empty").style.display =
+
+        visible === 0 ? "block" : "none";
+
+}
+
+renderCart();
+
+</script>
+
+</body>
+
+</html>
