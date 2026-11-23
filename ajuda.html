@@ -1,1 +1,639 @@
 
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ajuda | SuperAcessível</title>
+
+  <style>
+
+    * {
+
+      margin: 0;
+
+      padding: 0;
+
+      box-sizing: border-box;
+
+    }
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      background: #f4f8fb;
+
+      color: #263238;
+
+      line-height: 1.6;
+
+    }
+
+    header {
+
+      background: #0879c9;
+
+      color: white;
+
+      padding: 20px 7%;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+    }
+
+    header h1 {
+
+      font-size: 25px;
+
+    }
+
+    nav {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 16px;
+
+    }
+
+    nav a {
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+    }
+
+    nav a:hover {
+
+      text-decoration: underline;
+
+    }
+
+    a:focus-visible, button:focus-visible,
+
+    input:focus-visible, select:focus-visible,
+
+    textarea:focus-visible {
+
+      outline: 4px solid #ffbf47;
+
+      outline-offset: 3px;
+
+    }
+
+    .hero {
+
+      background: linear-gradient(120deg, #0879c9, #12a88a);
+
+      color: white;
+
+      text-align: center;
+
+      padding: 55px 20px;
+
+    }
+
+    .hero h2 {
+
+      font-size: 36px;
+
+      margin-bottom: 10px;
+
+    }
+
+    .hero p {
+
+      font-size: 18px;
+
+    }
+
+    main {
+
+      max-width: 850px;
+
+      margin: 40px auto;
+
+      padding: 0 20px;
+
+    }
+
+    .form-card {
+
+      background: white;
+
+      padding: 30px;
+
+      border-radius: 16px;
+
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+
+    }
+
+    .form-card h2 {
+
+      color: #0879c9;
+
+      margin-bottom: 8px;
+
+    }
+
+    .intro {
+
+      color: #64748b;
+
+      margin-bottom: 25px;
+
+    }
+
+    .field {
+
+      margin-bottom: 20px;
+
+    }
+
+    label {
+
+      display: block;
+
+      font-weight: bold;
+
+      margin-bottom: 8px;
+
+    }
+
+    input, select, textarea {
+
+      width: 100%;
+
+      padding: 13px;
+
+      border: 1px solid #cbd5e1;
+
+      border-radius: 8px;
+
+      font-size: 16px;
+
+      font-family: Arial, sans-serif;
+
+    }
+
+    textarea {
+
+      min-height: 110px;
+
+      resize: vertical;
+
+    }
+
+    .help-options {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+      gap: 12px;
+
+    }
+
+    .help-option {
+
+      border: 2px solid #dbeafe;
+
+      border-radius: 10px;
+
+      padding: 15px;
+
+      cursor: pointer;
+
+      background: #f8fbff;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+    .help-option:has(input:checked) {
+
+      border-color: #0879c9;
+
+      background: #eaf5ff;
+
+    }
+
+    .help-option input {
+
+      width: auto;
+
+    }
+
+    .help-option span {
+
+      font-weight: bold;
+
+    }
+
+    .submit-btn {
+
+      width: 100%;
+
+      padding: 15px;
+
+      border: none;
+
+      border-radius: 9px;
+
+      background: #0879c9;
+
+      color: white;
+
+      font-size: 17px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+    }
+
+    .submit-btn:hover {
+
+      background: #0563a6;
+
+    }
+
+    .result {
+
+      display: none;
+
+      margin-top: 25px;
+
+      padding: 20px;
+
+      border-radius: 10px;
+
+      background: #e8f8ef;
+
+      border: 1px solid #8bd6a8;
+
+      color: #17663a;
+
+    }
+
+    .result h3 {
+
+      margin-bottom: 8px;
+
+    }
+
+    .result p {
+
+      margin-bottom: 6px;
+
+    }
+
+    .notice {
+
+      margin-top: 20px;
+
+      background: #fff8e7;
+
+      border-left: 5px solid #e5a000;
+
+      padding: 15px;
+
+      border-radius: 8px;
+
+      color: #654b10;
+
+    }
+
+    footer {
+
+      background: #102d43;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 25px;
+
+      margin-top: 50px;
+
+    }
+
+    @media (max-width: 650px) {
+
+      header {
+
+        flex-direction: column;
+
+        text-align: center;
+
+      }
+
+      nav {
+
+        justify-content: center;
+
+      }
+
+      .hero h2 {
+
+        font-size: 29px;
+
+      }
+
+      .form-card {
+
+        padding: 22px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>♿ SuperAcessível</h1>
+
+    <nav aria-label="Menu principal">
+
+      <a href="index.html">Início</a>
+
+      <a href="compras.html">Compras</a>
+
+      <a href="mapa.html">Mapa</a>
+
+      <a href="acessibilidade.html">Acessibilidade</a>
+
+      <a href="ajuda.html">Ajuda</a>
+
+    </nav>
+
+  </header>
+
+  <section class="hero">
+
+    <h2>Precisando de ajuda?</h2>
+
+    <p>Estamos aqui para tornar suas compras mais fáceis e confortáveis!</p>
+
+  </section>
+
+  <main>
+
+    <section class="form-card">
+
+      <h2>Solicitar assistência</h2>
+
+      <p class="intro">
+
+        Preencha as informações abaixo para simular uma solicitação
+
+        de ajuda de um funcionário do supermercado.
+
+      </p>
+
+      <form id="helpForm">
+
+        <div class="field">
+
+          <label for="nome">Seu nome:</label>
+
+          <input
+
+            type="text"
+
+            id="nome"
+
+            placeholder="Digite seu nome"
+
+            required
+
+          >
+
+        </div>
+
+        <div class="field">
+
+          <label>Como podemos ajudar?</label>
+
+          <div class="help-options">
+
+            <label class="help-option">
+
+              <input type="radio" name="tipo" value="Acompanhar nas compras" required>
+
+              <span>🛒 Acompanhar nas compras</span>
+
+            </label>
+
+            <label class="help-option">
+
+              <input type="radio" name="tipo" value="Alcançar produtos">
+
+              <span>📦 Alcançar produtos</span>
+
+            </label>
+
+            <label class="help-option">
+
+              <input type="radio" name="tipo" value="Auxílio com mobilidade">
+
+              <span>♿ Auxílio com mobilidade</span>
+
+            </label>
+
+            <label class="help-option">
+
+              <input type="radio" name="tipo" value="Encontrar um setor">
+
+              <span>📍 Encontrar um setor</span>
+
+            </label>
+
+            <label class="help-option">
+
+              <input type="radio" name="tipo" value="Ajuda no caixa">
+
+              <span>💳 Ajuda no caixa</span>
+
+            </label>
+
+            <label class="help-option">
+
+              <input type="radio" name="tipo" value="Outra necessidade">
+
+              <span>🙋 Outra necessidade</span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label for="setor">Onde você está?</label>
+
+          <select id="setor" required>
+
+            <option value="">Selecione o setor</option>
+
+            <option>Entrada</option>
+
+            <option>Frutas e verduras</option>
+
+            <option>Bebidas</option>
+
+            <option>Padaria</option>
+
+            <option>Açougue</option>
+
+            <option>Limpeza</option>
+
+            <option>Higiene</option>
+
+            <option>Caixas</option>
+
+            <option>Outro local</option>
+
+          </select>
+
+        </div>
+
+        <div class="field">
+
+          <label for="descricao">Informações adicionais:</label>
+
+          <textarea
+
+            id="descricao"
+
+            placeholder="Conte um pouco mais sobre como podemos ajudar..."
+
+          ></textarea>
+
+        </div>
+
+        <button type="submit" class="submit-btn">
+
+          Enviar solicitação
+
+        </button>
+
+      </form>
+
+      <div class="result" id="resultado" role="status" aria-live="polite">
+
+        <h3>✅ Solicitação registrada na demonstração!</h3>
+
+        <p id="mensagemResultado"></p>
+
+        <p><strong>Obrigado por utilizar o SuperAcessível!</strong></p>
+
+      </div>
+
+      <div class="notice">
+
+        <strong>Importante:</strong> Esta é uma demonstração escolar.
+
+        A solicitação é exibida apenas nesta página e não é enviada
+
+        a funcionários reais.
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p>© 2026 SuperAcessível - Um supermercado melhor para todos.</p>
+
+    <p>Inclusão, autonomia e respeito.</p>
+
+  </footer>
+
+  <script>
+
+    const formulario = document.getElementById("helpForm");
+
+    formulario.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+
+      const tipo = document.querySelector('input[name="tipo"]:checked');
+
+      const setor = document.getElementById("setor").value;
+
+      const descricao = document.getElementById("descricao").value.trim();
+
+      if (!nome || !tipo || !setor) {
+
+        alert("Por favor, preencha os campos obrigatórios.");
+
+        return;
+
+      }
+
+      const resultado = document.getElementById("resultado");
+
+      const mensagem = document.getElementById("mensagemResultado");
+
+      mensagem.textContent =
+
+        nome + ", sua solicitação de \"" + tipo.value +
+
+        "\" foi registrada nesta demonstração. Local: " + setor +
+
+        (descricao ? ". Observação: " + descricao : ".");
+
+      resultado.style.display = "block";
+
+      resultado.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+      });
+
+      formulario.reset();
+
+    });
+
+  </script>
+
+</body>
+
+</html>
