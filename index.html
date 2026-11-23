@@ -1,1 +1,883 @@
+<!DOCTYPE html>
 
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Supermercado Inteligente e Acessível: tecnologia e inclusão para facilitar suas compras.">
+
+    <title>SuperAcessível | Compras para todos</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+        body {
+
+            background: #f5f8fc;
+
+            color: #172b4d;
+
+        }
+
+        header {
+
+            background: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+        }
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: #1265c4;
+
+        }
+
+        .logo-icon {
+
+            background: #e5f3eb;
+
+            color: #159957;
+
+            padding: 10px;
+
+            border-radius: 12px;
+
+            font-size: 23px;
+
+        }
+
+        nav {
+
+            display: flex;
+
+            gap: 25px;
+
+            align-items: center;
+
+        }
+
+        nav a {
+
+            text-decoration: none;
+
+            color: #526174;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+        }
+
+        nav a:hover {
+
+            color: #159957;
+
+        }
+
+        .hero {
+
+            padding: 85px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 50px;
+
+            background: linear-gradient(120deg, #edf6ff, #effaf3);
+
+            min-height: 520px;
+
+        }
+
+        .hero-content {
+
+            max-width: 570px;
+
+        }
+
+        .tag {
+
+            display: inline-block;
+
+            background: #dff5e9;
+
+            color: #16864e;
+
+            padding: 9px 15px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 22px;
+
+        }
+
+        .hero h1 {
+
+            font-size: clamp(35px, 5vw, 55px);
+
+            line-height: 1.15;
+
+            margin-bottom: 22px;
+
+            color: #15345b;
+
+        }
+
+        .hero h1 span {
+
+            color: #159957;
+
+        }
+
+        .hero p {
+
+            color: #63748a;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+
+        }
+
+        .buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+        }
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 15px 24px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            transition: .3s;
+
+            cursor: pointer;
+
+        }
+
+        .btn-primary {
+
+            background: #159957;
+
+            color: white;
+
+        }
+
+        .btn-primary:hover {
+
+            background: #107744;
+
+            transform: translateY(-2px);
+
+        }
+
+        .btn-secondary {
+
+            border: 1px solid #c8d6e5;
+
+            color: #24517e;
+
+            background: white;
+
+        }
+
+        .btn-secondary:hover {
+
+            background: #edf6ff;
+
+        }
+
+        .hero-image {
+
+            width: 43%;
+
+            max-width: 470px;
+
+            min-height: 300px;
+
+            background: linear-gradient(145deg, #c9ead8, #d9ebff);
+
+            border-radius: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 125px;
+
+            box-shadow: 0 20px 45px rgba(35, 86, 125, .12);
+
+        }
+
+        .features {
+
+            padding: 75px 7%;
+
+            text-align: center;
+
+        }
+
+        .section-title {
+
+            font-size: 32px;
+
+            margin-bottom: 13px;
+
+            color: #15345b;
+
+        }
+
+        .section-description {
+
+            color: #718096;
+
+            margin-bottom: 45px;
+
+            line-height: 1.6;
+
+        }
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+
+        }
+
+        .card {
+
+            background: white;
+
+            padding: 30px 25px;
+
+            border-radius: 18px;
+
+            text-align: left;
+
+            box-shadow: 0 5px 25px rgba(0,0,0,.04);
+
+            transition: .3s;
+
+            border: 1px solid #edf1f5;
+
+        }
+
+        .card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 12px 30px rgba(0,0,0,.08);
+
+        }
+
+        .card-icon {
+
+            width: 55px;
+
+            height: 55px;
+
+            border-radius: 14px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 27px;
+
+            background: #e5f3eb;
+
+            margin-bottom: 20px;
+
+        }
+
+        .card h3 {
+
+            margin-bottom: 12px;
+
+            font-size: 19px;
+
+        }
+
+        .card p {
+
+            color: #718096;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+        }
+
+        .card a {
+
+            color: #159957;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+        }
+
+        .mission {
+
+            margin: 10px 7% 75px;
+
+            padding: 55px;
+
+            background: #153f70;
+
+            border-radius: 22px;
+
+            color: white;
+
+            text-align: center;
+
+        }
+
+        .mission h2 {
+
+            font-size: 29px;
+
+            margin-bottom: 17px;
+
+        }
+
+        .mission p {
+
+            color: #d6e5f5;
+
+            line-height: 1.8;
+
+            max-width: 750px;
+
+            margin: auto;
+
+        }
+
+        footer {
+
+            background: #102b4c;
+
+            color: white;
+
+            padding: 35px 7%;
+
+            text-align: center;
+
+        }
+
+        footer p {
+
+            color: #bdcde0;
+
+            font-size: 13px;
+
+            margin-top: 10px;
+
+        }
+
+        .accessibility-button {
+
+            position: fixed;
+
+            bottom: 20px;
+
+            right: 20px;
+
+            width: 55px;
+
+            height: 55px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #1265c4;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,.2);
+
+            z-index: 200;
+
+        }
+
+        .accessibility-button:focus,
+
+        a:focus,
+
+        button:focus {
+
+            outline: 3px solid #f4b942;
+
+            outline-offset: 4px;
+
+        }
+
+        .high-contrast {
+
+            background: #000 !important;
+
+            color: #fff !important;
+
+        }
+
+        .high-contrast * {
+
+            color: #fff !important;
+
+            border-color: #fff !important;
+
+        }
+
+        .high-contrast header,
+
+        .high-contrast .card,
+
+        .high-contrast .btn-secondary {
+
+            background: #000 !important;
+
+        }
+
+        .high-contrast .hero,
+
+        .high-contrast .features {
+
+            background: #000 !important;
+
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+
+                padding: 15px 5%;
+
+                flex-wrap: wrap;
+
+                gap: 15px;
+
+            }
+
+            nav {
+
+                width: 100%;
+
+                gap: 18px;
+
+                overflow-x: auto;
+
+                padding: 5px 0;
+
+            }
+
+            nav a {
+
+                white-space: nowrap;
+
+            }
+
+            .hero {
+
+                flex-direction: column;
+
+                padding: 60px 6%;
+
+                text-align: center;
+
+            }
+
+            .hero-content {
+
+                max-width: 100%;
+
+            }
+
+            .buttons {
+
+                justify-content: center;
+
+            }
+
+            .hero-image {
+
+                width: 100%;
+
+                min-height: 220px;
+
+                font-size: 95px;
+
+            }
+
+            .cards {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .mission {
+
+                padding: 35px 22px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+
+        <span class="logo-icon">♿</span>
+
+        <span>SuperAcessível</span>
+
+    </div>
+
+    <nav aria-label="Menu principal">
+
+        <a href="index.html">Início</a>
+
+        <a href="compras.html">Compras</a>
+
+        <a href="mapa.html">Mapa</a>
+
+        <a href="acessibilidade.html">Acessibilidade</a>
+
+        <a href="ajuda.html">Ajuda</a>
+
+    </nav>
+
+</header>
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="tag">TECNOLOGIA • INCLUSÃO • AUTONOMIA</span>
+
+            <h1>
+
+                Comprar deve ser fácil para <span>todos.</span>
+
+            </h1>
+
+            <p>
+
+                Uma nova maneira de fazer compras, com mais acessibilidade,
+
+                autonomia e conforto. Nossa tecnologia ajuda a transformar
+
+                o supermercado em um ambiente inclusivo.
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="compras.html" class="btn btn-primary">
+
+                    Começar agora →
+
+                </a>
+
+                <a href="#funcionalidades" class="btn btn-secondary">
+
+                    Conhecer funcionalidades
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image" role="img"
+
+             aria-label="Símbolo de acessibilidade e inclusão">
+
+            🛒
+
+        </div>
+
+    </section>
+
+    <section class="features" id="funcionalidades">
+
+        <h2 class="section-title">Tudo para facilitar suas compras</h2>
+
+        <p class="section-description">
+
+            Recursos desenvolvidos para proporcionar uma experiência
+
+            mais simples, segura e acessível.
+
+        </p>
+
+        <div class="cards">
+
+            <article class="card">
+
+                <div class="card-icon">🛍️</div>
+
+                <h3>Área de compras</h3>
+
+                <p>
+
+                    Encontre produtos, consulte preços e organize
+
+                    sua lista de compras com facilidade.
+
+                </p>
+
+                <a href="compras.html">Acessar compras →</a>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-icon">🗺️</div>
+
+                <h3>Mapa acessível</h3>
+
+                <p>
+
+                    Consulte a localização dos produtos e visualize
+
+                    caminhos acessíveis dentro do supermercado.
+
+                </p>
+
+                <a href="mapa.html">Explorar mapa →</a>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-icon">♿</div>
+
+                <h3>Acessibilidade</h3>
+
+                <p>
+
+                    Personalize sua experiência com recursos
+
+                    que facilitam a navegação.
+
+                </p>
+
+                <a href="acessibilidade.html">Configurar acessibilidade →</a>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-icon">🤝</div>
+
+                <h3>Solicitar ajuda</h3>
+
+                <p>
+
+                    Encontre uma maneira simples de solicitar
+
+                    assistência de um funcionário.
+
+                </p>
+
+                <a href="ajuda.html">Solicitar assistência →</a>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-icon">📋</div>
+
+                <h3>Minha lista</h3>
+
+                <p>
+
+                    Organize os produtos que deseja comprar
+
+                    e acompanhe sua lista.
+
+                </p>
+
+                <a href="lista-compras.html">Ver minha lista →</a>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-icon">💙</div>
+
+                <h3>Inclusão para todos</h3>
+
+                <p>
+
+                    Um projeto que utiliza a tecnologia para
+
+                    reduzir barreiras e promover independência.
+
+                </p>
+
+                <a href="#projeto">Conhecer o projeto →</a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="mission" id="projeto">
+
+        <h2>Um supermercado melhor para todos.</h2>
+
+        <p>
+
+            O Supermercado Inteligente e Acessível é um projeto
+
+            conceitual que busca utilizar a tecnologia para melhorar
+
+            a experiência de pessoas com deficiência física,
+
+            mobilidade reduzida e outras necessidades especiais.
+
+            Acreditamos que acessibilidade não é um privilégio,
+
+            é um direito.
+
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <h3>SuperAcessível ♿</h3>
+
+    <p>Supermercado Inteligente e Acessível</p>
+
+    <p>Tecnologia, autonomia e inclusão.</p>
+
+    <p>Projeto acadêmico demonstrativo • 2026</p>
+
+</footer>
+
+<button class="accessibility-button"
+
+        onclick="toggleContrast()"
+
+        aria-label="Ativar ou desativar alto contraste"
+
+        title="Alto contraste">
+
+    ◐
+
+</button>
+
+<script>
+
+    function toggleContrast() {
+
+        document.body.classList.toggle("high-contrast");
+
+    }
+
+</script>
+
+</body>
+
+</html>
